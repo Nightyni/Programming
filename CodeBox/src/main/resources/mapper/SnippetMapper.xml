@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codebox.mapper.SnippetMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="snippetMap" type="Snippet">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="language" property="language"/>
+        <result column="tags" property="tags"/>
+        <result column="use_count" property="useCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 多条件模糊搜索 + 分页（支持 Other 语言） -->
+    <select id="searchByCondition" resultMap="snippetMap">
+        SELECT id, user_id, title, content, language, tags, use_count, create_time, update_time
+        FROM code_snippet
+        WHERE user_id = #{userId}
+        <if test="keyword != null and keyword != ''">
+            AND (title LIKE CONCAT('%', #{keyword}, '%')
+                 OR content LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="language != null and language != ''">
+            <choose>
+                <when test="language == 'Other'">
+                    AND language NOT IN
+                    <foreach collection="presetLanguages" item="lang" open="(" separator="," close=")">
+                        #{lang}
+                    </foreach>
+                </when>
+                <otherwise>
+                    AND language = #{language}
+                </otherwise>
+            </choose>
+        </if>
+        <if test="tags != null and tags != ''">
+            AND tags LIKE CONCAT('%', #{tags}, '%')
+        </if>
+        ORDER BY create_time DESC
+        <if test="offset != null and pageSize != null">
+            LIMIT #{offset}, #{pageSize}
+        </if>
+    </select>
+
+    <!-- 统计搜索结果总数（支持 Other 语言） -->
+    <select id="countByCondition" resultType="int">
+        SELECT COUNT(*)
+        FROM code_snippet
+        WHERE user_id = #{userId}
+        <if test="keyword != null and keyword != ''">
+            AND (title LIKE CONCAT('%', #{keyword}, '%')
+                 OR content LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="language != null and language != ''">
+            <choose>
+                <when test="language == 'Other'">
+                    AND language NOT IN
+                    <foreach collection="presetLanguages" item="lang" open="(" separator="," close=")">
+                        #{lang}
+                    </foreach>
+                </when>
+                <otherwise>
+                    AND language = #{language}
+                </otherwise>
+            </choose>
+        </if>
+        <if test="tags != null and tags != ''">
+            AND tags LIKE CONCAT('%', #{tags}, '%')
+        </if>
+    </select>
+
+    <!-- 根据ID查询（同时验证 userId） -->
+    <select id="findById" resultMap="snippetMap">
+        SELECT id, user_id, title, content, language, tags, use_count, create_time, update_time
+        FROM code_snippet
+        WHERE id = #{id} AND user_id = #{userId}
+    </select>
+
+    <!-- 新增代码片段 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO code_snippet (user_id, title, content, language, tags, use_count, create_time)
+        VALUES (#{userId}, #{title}, #{content}, #{language}, #{tags}, #{useCount}, NOW())
+    </insert>
+
+    <!-- 修改代码片段 -->
+    <update id="update">
+        UPDATE code_snippet
+        SET title = #{title},
+            content = #{content},
+            language = #{language},
+            tags = #{tags},
+            update_time = NOW()
+        WHERE id = #{id} AND user_id = #{userId}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="delete">
+        DELETE FROM code_snippet
+        WHERE id = #{id} AND user_id = #{userId}
+    </delete>
+
+    <!-- 增加使用次数 -->
+    <update id="incrementUseCount">
+        UPDATE code_snippet
+        SET use_count = use_count + 1
+        WHERE id = #{id}
+    </update>
+
+</mapper>

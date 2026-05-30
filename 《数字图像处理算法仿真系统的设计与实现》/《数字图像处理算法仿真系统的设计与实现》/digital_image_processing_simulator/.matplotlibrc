@@ -1,0 +1,39 @@
+# matplotlibrc - 中文字体配置
+# 数字图像处理项目专用
+
+# 字体设置
+font.family: sans-serif
+font.sans-serif: Microsoft YaHei, SimHei, SimSun, FangSong, KaiTi, DejaVu Sans, Arial, Helvetica, Tahoma, Verdana
+font.size: 10.0
+
+# 中文字体支持
+axes.unicode_minus: False  # 解决负号显示问题
+
+# 图形设置
+figure.figsize: 8.0, 6.0
+figure.dpi: 100
+figure.facecolor: white
+figure.edgecolor: white
+
+# 坐标轴设置
+axes.linewidth: 0.8
+axes.grid: True
+axes.grid.which: both
+axes.grid.axis: both
+
+# 刻度设置
+xtick.direction: out
+ytick.direction: out
+xtick.labelsize: 9
+ytick.labelsize: 9
+
+# 图例设置
+legend.fontsize: 9
+legend.frameon: True
+legend.framealpha: 0.8
+
+# 保存设置
+savefig.dpi: 300
+savefig.format: png
+savefig.bbox: tight
+savefig.pad_inches: 0.1

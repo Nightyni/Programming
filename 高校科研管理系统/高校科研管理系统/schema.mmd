@@ -1,0 +1,72 @@
+erDiagram
+    %% 定义实体和关系
+    users ||--o{ projects : "领导"
+    users ||--o{ project_members : "加入"
+    users ||--o{ papers : "撰写"
+    users ||--o{ teams : "领导" 
+    users ||--o{ team_members : "加入"
+    
+    projects ||--o{ project_members : "包含"
+    projects ||--o{ papers : "产出"
+    
+    teams ||--o{ team_members : "包含"
+
+    %% 定义 users 表结构
+    users {
+        int id PK
+        varchar username "用户名"
+        varchar email "邮箱"
+        varchar full_name "姓名"
+        datetime created_at "创建时间"
+    }
+
+    %% 定义 projects 表结构
+    projects {
+        int id PK
+        varchar name "项目名称"
+        text description "描述"
+        int leader_id FK "负责人ID"
+        date start_date "开始日期"
+        date end_date "结束日期"
+        varchar status "状态"
+    }
+
+    %% 定义 project_members 表结构
+    project_members {
+        int id PK
+        int project_id FK "项目ID"
+        int user_id FK "用户ID"
+        varchar role "角色"
+        date joined_date "加入日期"
+    }
+
+    %% 定义 papers 表结构
+    papers {
+        int id PK
+        varchar title "论文标题"
+        text abstract "摘要"
+        int author_id FK "作者ID"
+        int project_id FK "所属项目ID"
+        date publication_date "发布日期"
+        varchar journal "期刊"
+        varchar doi "DOI编号"
+    }
+
+    %% 定义 teams 表结构
+    teams {
+        int id PK
+        varchar name "团队名称"
+        text description "描述"
+        int leader_id FK "负责人ID"
+        varchar department "部门"
+        date established_date "成立日期"
+    }
+
+    %% 定义 team_members 表结构
+    team_members {
+        int id PK
+        int team_id FK "团队ID"
+        int user_id FK "用户ID"
+        varchar position "职位"
+        date join_date "加入日期"
+    }

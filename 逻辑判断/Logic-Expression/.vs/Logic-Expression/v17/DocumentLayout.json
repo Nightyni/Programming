@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\86182\\Desktop\\\u6570\u636E\u7ED3\u6784\\Logic-Expression\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86182\\Desktop\\\u6570\u636E\u7ED3\u6784\\Logic-Expression.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE4B0F51-DE64-4372-AB03-95D0D94F318D}|Project1\\Project1.vcxproj|C:\\Users\\86182\\Desktop\\\u6570\u636E\u7ED3\u6784\\Logic-Expression\\Project1\\Logic-Expression.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BE4B0F51-DE64-4372-AB03-95D0D94F318D}|Project1\\Project1.vcxproj|solutionrelative:Project1\\Logic-Expression.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Logic-Expression.c",
+              "DocumentMoniker": "C:\\Users\\86182\\Desktop\\\u6570\u636E\u7ED3\u6784\\Logic-Expression.c",
+              "RelativeDocumentMoniker": "..\\Logic-Expression.c",
+              "ToolTip": "C:\\Users\\86182\\Desktop\\\u6570\u636E\u7ED3\u6784\\Logic-Expression.c",
+              "RelativeToolTip": "..\\Logic-Expression.c",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-09-23T16:09:17.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Logic-Expression.cpp",
+              "DocumentMoniker": "C:\\Users\\86182\\Desktop\\\u6570\u636E\u7ED3\u6784\\Logic-Expression\\Project1\\Logic-Expression.cpp",
+              "RelativeDocumentMoniker": "Project1\\Logic-Expression.cpp",
+              "ToolTip": "C:\\Users\\86182\\Desktop\\\u6570\u636E\u7ED3\u6784\\Logic-Expression\\Project1\\Logic-Expression.cpp",
+              "RelativeToolTip": "Project1\\Logic-Expression.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-26T05:48:10.515Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

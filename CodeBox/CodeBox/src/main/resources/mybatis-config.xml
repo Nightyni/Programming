@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 全局配置 -->
+    <settings>
+        <!-- 开启驼峰命名自动映射（例如：user_id -> userId） -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        
+        <!-- 开启延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        
+        <!-- 打印SQL日志（开发阶段开启，方便调试） -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- 类型别名（简化Mapper.xml中的全限定类名） -->
+    <typeAliases>
+        <typeAlias type="com.codebox.entity.User" alias="User"/>
+        <typeAlias type="com.codebox.entity.Snippet" alias="Snippet"/>
+    </typeAliases>
+
+</configuration>
